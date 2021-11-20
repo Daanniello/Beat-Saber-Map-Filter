@@ -3,7 +3,7 @@ A tool to filter every possible element in a beat saber map. Instantly create pl
 Download here! [coming soon]
 
 # Allows you to filter ALL BEAT SABER MAPS by every little detail!
-<img src="https://i.imgur.com/7vEjO1l.png" width="2000" alt="BeatSaberMapFilter">
+<img src="https://i.imgur.com/4HfmrXx.png" width="2000" alt="BeatSaberMapFilter">
 
 ## You want to know how many maps have been made between 2018 and 2019? Easy!
 <img src="https://i.imgur.com/rhznBdR.png" width="600" alt="BeatSaberMapFilter">
