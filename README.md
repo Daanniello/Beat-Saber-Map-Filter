@@ -1,6 +1,6 @@
 # Beat Saber Map Filter <img src="https://i.imgur.com/gezCkpI.png" width="50" alt="BeatSaberMapFilter">
 A tool to filter every possible element in a beat saber map. Instantly create playlists with these filters and displays helpfull charts.  
-Download here! [coming soon]
+[Download here!](https://github.com/Daanniello/Beat-Saber-Map-Filter/releases/tag/v1.0.0)
 
 # Allows you to filter ALL BEAT SABER MAPS by every little detail!
 <img src="https://i.imgur.com/4HfmrXx.png" width="2000" alt="BeatSaberMapFilter">
