@@ -132,14 +132,22 @@ namespace BeatSaberMapFilter
             var bpmMax = Convert.ToInt32(BPMMaxInput.Text);
             var njsMin = Convert.ToDouble(NJSMinInput.Text);
             var njsMax = Convert.ToDouble(NJSMaxInput.Text);
+            var durationMin = Convert.ToDouble(DurationMinInput.Text);
+            var durationMax = Convert.ToDouble(DurationMaxInput.Text);
             var npsMin = Convert.ToInt32(NPSMinInput.Text);
             var npsMax = Convert.ToInt32(NPSMaxInput.Text);
+            var obstaclesMin = Convert.ToInt32(ObstaclesMinInput.Text);
+            var obstaclesMax = Convert.ToInt32(ObstaclesMaxInput.Text);
+            var bombsMin = Convert.ToInt32(BombsMinInput.Text);
+            var bombsMax = Convert.ToInt32(BombsMaxInput.Text);
             var ntsMin = Convert.ToInt32(NotesMinInput.Text);
             var ntsMax = Convert.ToInt32(NotesMaxInput.Text);
             var starsMin = Convert.ToDouble(StarsMinInput.Text);
             var starsMax = Convert.ToDouble(StarsMaxInput.Text);
             var ppMin = Convert.ToDouble(PPMinInput.Text);
             var ppMax = Convert.ToDouble(PPMaxInput.Text);
+            var fromDate = DatepickerFrom.SelectedDate;
+            var toDate = DatePickerTo.SelectedDate;
 
             using (var httpClient = new HttpClient())
             {
@@ -187,6 +195,8 @@ namespace BeatSaberMapFilter
                             if (HardCheckBox.IsChecked == false && map.Diff == "Hard") shouldBeAdded = false;
                             if (ExpertCheckBox.IsChecked == false && map.Diff == "Expert") shouldBeAdded = false;
                             if (ExpertPlusCheckBox.IsChecked == false && map.Diff == "Expert+") shouldBeAdded = false;
+                            if (!(map.Length >= durationMin && map.Length <= durationMax)) shouldBeAdded = false;
+                            if (fromDate != null && toDate != null) if (!(map.UploadDate >= fromDate && map.UploadDate <= toDate)) shouldBeAdded = false;
                         }
 
                         //Map Filters--------------------                      
@@ -195,6 +205,8 @@ namespace BeatSaberMapFilter
                             if (!(map.Njs >= njsMin && map.Njs <= njsMax)) shouldBeAdded = false;
                             if (!(map.Nps >= npsMin && map.Nps <= npsMax)) shouldBeAdded = false;
                             if (!(map.Notes >= ntsMin && map.Notes <= ntsMax)) shouldBeAdded = false;
+                            if (!(map.Bombs >= bombsMin && map.Bombs <= bombsMax)) shouldBeAdded = false;
+                            if (!(map.Obstacles >= obstaclesMin && map.Obstacles <= obstaclesMax)) shouldBeAdded = false;
                         }
 
                         //ScoreSaber Filters-----------------
@@ -211,13 +223,17 @@ namespace BeatSaberMapFilter
 
                 //Max range to output. 
                 var maxOutputCount = Convert.ToInt32(MaxOutputInput.Text);
+                
+                //Randomize order if user wants that 
+                var random = new Random();
+                if ((bool)RandomizeOrderCheckbox.IsChecked) AllMaps = AllMaps.OrderBy(a => random.Next(0, maxOutputCount)).ToList();
+                //Remove deleted maps if user wants that
+                if (!(bool)IncludeRemovedMapsCheckbox.IsChecked) AllMaps = AllMaps.Where(x => x.UploadDate != null).ToList();
+                //limit the output to what the user wants
                 if (maxOutputCount == 0) maxOutputCount = AllMaps.Count();
                 var rangedMapDifficulties = AllMaps.Take(maxOutputCount);
                 ResultsCountLabel.Content = $"Total Results: {AllMaps.Count()} - Shown Results: {maxOutputCount}";
-                MapDataGrid.ItemsSource = rangedMapDifficulties;
-
-
-
+                MapDataGrid.ItemsSource = rangedMapDifficulties.OrderBy(x => x.UploadDate);
 
 
                 //Add colum headers into combobox from graph
@@ -226,7 +242,7 @@ namespace BeatSaberMapFilter
                     if (colum.Header.ToString() == "Scores" || colum.Header.ToString() == "UploadDate" || colum.Header.ToString() == "KeyCode" || colum.Header.ToString() == "Diff") continue;
                     graphCombobox.Items.Add(colum.Header);
                 }
-                _shownMapDataResult = rangedMapDifficulties;
+                _shownMapDataResult = rangedMapDifficulties.OrderBy(x => x.UploadDate);
             }
         }
 
@@ -248,6 +264,17 @@ namespace BeatSaberMapFilter
                 count++;
             }
             DrawGraph(dic);
+        }
+
+        private void Header_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
