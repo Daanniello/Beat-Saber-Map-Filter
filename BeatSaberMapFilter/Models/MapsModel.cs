@@ -96,6 +96,8 @@ namespace BeatSaberMapFilter.Models
         public double Heat { get; set; }
         public DateTimeOffset? UploadDate { get; set; }
 
+        public string HashCode { get; set; }
+
         public bool IsRanked = false;
     }
 
@@ -113,7 +115,7 @@ namespace BeatSaberMapFilter.Models
         public bool IsNull => Integer == null && Enum == null;
     }
 
-    internal static class Converter
+    internal static class MapsModelConverter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {

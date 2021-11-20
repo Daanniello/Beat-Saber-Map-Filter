@@ -7,94 +7,93 @@
         mc:Ignorable="d"
         Title="Beat Saber Map Filter" Height="933" Width="1237" ResizeMode="NoResize" WindowStyle="None">
     <Grid Background="#FF2B2D42">
-        <Button Content="Save as playlist
+        <Button x:Name="SaveAsPlaylistButton" Content="Save as playlist
                 
-                " HorizontalAlignment="Left" Margin="542,567,0,0" VerticalAlignment="Top" Width="86" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False"/>
-        <Button Content="Select Save Path
-                " HorizontalAlignment="Left" Margin="441,567,0,0" VerticalAlignment="Top" Width="93" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False"/>
-        <Label Content="Note Jump Distance" HorizontalAlignment="Left" Margin="18,310,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="MaxOutputInput" HorizontalAlignment="Left" Margin="536,542,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Max number of maps" HorizontalAlignment="Left" Margin="414,536,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <CheckBox x:Name="RandomizeOrderCheckbox" Content="Randomize order of maps" HorizontalAlignment="Left" Margin="471,522,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747" FlowDirection="RightToLeft"/>
+                " HorizontalAlignment="Left" Margin="1129,575,0,0" VerticalAlignment="Top" Width="86" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False" Click="SaveAsPlaylistButton_Click"/>
+        <Button x:Name="SelectSavePathButton" Content="Select save path                 " HorizontalAlignment="Left" Margin="1028,575,0,0" VerticalAlignment="Top" Width="93" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False" Click="SelectSavePathButton_Click"/>
+        <Label Content="Note Jump Distance" HorizontalAlignment="Left" Margin="18,293,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="MaxOutputInput" HorizontalAlignment="Left" Margin="542,576,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Max number of maps to show" HorizontalAlignment="Left" Margin="369,572,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <CheckBox x:Name="RandomizeOrderCheckbox" Content="Randomize order of maps" HorizontalAlignment="Left" Margin="477,556,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747" FlowDirection="RightToLeft"/>
         <Label Content="Min
-               " HorizontalAlignment="Left" Margin="140,310,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,310,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="C\yeet.json
-               " HorizontalAlignment="Left" Margin="315,564,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" HorizontalContentAlignment="Left" FlowDirection="RightToLeft"/>
+               " HorizontalAlignment="Left" Margin="140,293,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,293,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label x:Name="SelectedPathLabel" Content="C\yeet.json
+               " HorizontalAlignment="Left" Margin="680,572,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" HorizontalContentAlignment="Left" FlowDirection="RightToLeft" Width="348"/>
         <Button x:Name="ShowResultsButton" Content="Show Results
-                " HorizontalAlignment="Left" Margin="24,567,0,0" VerticalAlignment="Top" Width="92" Click="ShowResultsButton_Click" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False"/>
+                " HorizontalAlignment="Left" Margin="21,576,0,0" VerticalAlignment="Top" Width="92" Click="ShowResultsButton_Click" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False"/>
         <DataGrid x:Name="MapDataGrid" Margin="21,604,22,19" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True"/>
-        <TextBox x:Name="NJSMinInput" HorizontalAlignment="Left" Margin="177,315,0,0" Text="14" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="NJSMaxInput" HorizontalAlignment="Left" Margin="268,314,0,0" Text="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Notes Per Second" HorizontalAlignment="Left" Margin="18,333,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,333,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,333,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="NPSMinInput" HorizontalAlignment="Left" Margin="177,338,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="NPSMaxInput" HorizontalAlignment="Left" Margin="268,337,0,0" Text="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <CheckBox x:Name="EasyCheckBox" Content="Easy" HorizontalAlignment="Left" Margin="146,244,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Difficulty" HorizontalAlignment="Left" Margin="19,238,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <CheckBox x:Name="NormalCheckBox" Content="Normal" HorizontalAlignment="Left" Margin="194,244,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <CheckBox x:Name="HardCheckBox" Content="Hard" HorizontalAlignment="Left" Margin="259,244,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <CheckBox x:Name="ExpertCheckBox" Content="Expert" HorizontalAlignment="Left" Margin="310,244,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <CheckBox x:Name="ExpertPlusCheckBox" Content="Expert+" HorizontalAlignment="Left" Margin="365,244,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="24,306,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="569"/>
-        <Label Content="Map Filters" HorizontalAlignment="Left" Margin="19,280,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="26,471,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="569"/>
-        <Label Content="ScoreSaber Filters" HorizontalAlignment="Left" Margin="21,445,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
-        <Label Content="Stars" HorizontalAlignment="Left" Margin="20,475,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,475,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="233,475,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="StarsMinInput" HorizontalAlignment="Left" Margin="179,480,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="StarsMaxInput" HorizontalAlignment="Left" Margin="270,479,0,0" Text="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Performance Points" HorizontalAlignment="Left" Margin="20,502,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,502,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="233,502,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="PPMinInput" HorizontalAlignment="Left" Margin="179,506,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="PPMaxInput" HorizontalAlignment="Left" Margin="270,506,0,0" Text="1000" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Rectangle HorizontalAlignment="Left" Height="3" Margin="26,92,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="567"/>
-        <Label Content="Global Filters" HorizontalAlignment="Left" Margin="22,66,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
-        <CheckBox x:Name="RankedOnlyCheckBox" Content="Ranked Only" HorizontalAlignment="Left" Margin="25,531,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Total Notes" HorizontalAlignment="Left" Margin="18,356,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,356,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,356,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="NotesMinInput" HorizontalAlignment="Left" Margin="177,361,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="NotesMaxInput" HorizontalAlignment="Left" Margin="268,360,0,0" Text="10000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Beats Per Minute" HorizontalAlignment="Left" Margin="20,98,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,98,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,99,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="BPMMinInput" HorizontalAlignment="Left" Margin="179,104,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="BPMMaxInput" HorizontalAlignment="Left" Margin="270,103,0,0" Text="600" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Download Count" HorizontalAlignment="Left" Margin="20,189,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,189,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,190,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="DownloadMinInput" HorizontalAlignment="Left" Margin="179,195,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="DownloadMaxInput" HorizontalAlignment="Left" Margin="304,194,0,0" Text="10000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Upvotes" HorizontalAlignment="Left" Margin="20,143,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,143,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,144,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="UpvotesMinInput" HorizontalAlignment="Left" Margin="179,149,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="UpvotesMaxInput" HorizontalAlignment="Left" Margin="304,148,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Downvotes" HorizontalAlignment="Left" Margin="20,166,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,166,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,167,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="DownvotesMinInput" HorizontalAlignment="Left" Margin="179,172,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="DownvotesMaxInput" HorizontalAlignment="Left" Margin="304,171,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Up/Down vote ratio" HorizontalAlignment="Left" Margin="20,121,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,121,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,122,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="RatioMinInput" HorizontalAlignment="Left" Margin="179,127,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="RatioMaxInput" HorizontalAlignment="Left" Margin="270,126,0,0" Text="100" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <CheckBox x:Name="GlobalEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="106,72,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
-        <CheckBox x:Name="MapEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="93,286,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
-        <CheckBox x:Name="ScoresaberEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="130,451,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
-        <Label x:Name="ResultsCountLabel" Content="Results:" HorizontalAlignment="Left" Margin="121,564,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <DatePicker x:Name="DatepickerFrom" HorizontalAlignment="Right" Margin="0,63,152,0" VerticalAlignment="Top" Width="106" SelectedDateFormat="Short" Text="dsda" IsTodayHighlighted="True"/>
-        <DatePicker x:Name="DatePickerTo" HorizontalAlignment="Right" Margin="0,63,17,0" VerticalAlignment="Top" Width="105" SelectedDateFormat="Short" Text="dsda"/>
-        <Label Content="From" HorizontalAlignment="Right" Margin="0,62,263,0" VerticalAlignment="Top" Height="24" Foreground="#FFEDF2F4"/>
-        <Label Content="To" HorizontalAlignment="Right" Margin="0,63,125,0" VerticalAlignment="Top" Height="24" Foreground="#FFEDF2F4"/>
-        <Canvas x:Name="Canvas" HorizontalAlignment="Right" Height="380" Margin="0,131,47,0" VerticalAlignment="Top" Width="507" Background="#FFF0F0F0"/>
-        <Label Content="Time" HorizontalAlignment="Right" Margin="0,506,47,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <ComboBox x:Name="graphCombobox" HorizontalAlignment="Right" Margin="0,101,47,0" VerticalAlignment="Top" Width="120" SelectionChanged="graphCombobox_SelectionChanged" BorderBrush="#FF474747" Foreground="#FF2B2D42">
+        <TextBox x:Name="NJSMinInput" HorizontalAlignment="Left" Margin="177,298,0,0" Text="14" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="NJSMaxInput" HorizontalAlignment="Left" Margin="268,297,0,0" Text="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Notes Per Second" HorizontalAlignment="Left" Margin="18,316,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,316,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,316,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="NPSMinInput" HorizontalAlignment="Left" Margin="177,321,0,0" Text="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="NPSMaxInput" HorizontalAlignment="Left" Margin="268,320,0,0" Text="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <CheckBox x:Name="EasyCheckBox" Content="Easy" HorizontalAlignment="Left" Margin="146,227,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Difficulty" HorizontalAlignment="Left" Margin="19,221,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <CheckBox x:Name="NormalCheckBox" Content="Normal" HorizontalAlignment="Left" Margin="194,227,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <CheckBox x:Name="HardCheckBox" Content="Hard" HorizontalAlignment="Left" Margin="259,227,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <CheckBox x:Name="ExpertCheckBox" Content="Expert" HorizontalAlignment="Left" Margin="310,227,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <CheckBox x:Name="ExpertPlusCheckBox" Content="Expert+" HorizontalAlignment="Left" Margin="365,227,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="24,289,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="610"/>
+        <Label Content="Map Filters" HorizontalAlignment="Left" Margin="19,263,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="26,454,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="608"/>
+        <Label Content="ScoreSaber Filters" HorizontalAlignment="Left" Margin="21,428,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
+        <Label Content="Stars" HorizontalAlignment="Left" Margin="20,458,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,458,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="233,458,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="StarsMinInput" HorizontalAlignment="Left" Margin="179,463,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="StarsMaxInput" HorizontalAlignment="Left" Margin="270,462,0,0" Text="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Performance Points" HorizontalAlignment="Left" Margin="20,485,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,485,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="233,485,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="PPMinInput" HorizontalAlignment="Left" Margin="179,489,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="PPMaxInput" HorizontalAlignment="Left" Margin="270,489,0,0" Text="1000" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Rectangle HorizontalAlignment="Left" Height="3" Margin="26,75,0,0" Stroke="#FFEF233C" VerticalAlignment="Top" Width="608"/>
+        <Label Content="Global Filters" HorizontalAlignment="Left" Margin="22,49,0,0" VerticalAlignment="Top" Foreground="#FFEF233C"/>
+        <CheckBox x:Name="RankedOnlyCheckBox" Content="Ranked Only" HorizontalAlignment="Left" Margin="25,514,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Total Notes" HorizontalAlignment="Left" Margin="18,339,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,339,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,339,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="NotesMinInput" HorizontalAlignment="Left" Margin="177,344,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="NotesMaxInput" HorizontalAlignment="Left" Margin="268,343,0,0" Text="10000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Beats Per Minute" HorizontalAlignment="Left" Margin="20,81,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,81,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,82,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="BPMMinInput" HorizontalAlignment="Left" Margin="179,87,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="BPMMaxInput" HorizontalAlignment="Left" Margin="270,86,0,0" Text="600" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Download Count" HorizontalAlignment="Left" Margin="20,172,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,172,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,173,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="DownloadMinInput" HorizontalAlignment="Left" Margin="179,178,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="DownloadMaxInput" HorizontalAlignment="Left" Margin="304,177,0,0" Text="10000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Upvotes" HorizontalAlignment="Left" Margin="20,126,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,126,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,127,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="UpvotesMinInput" HorizontalAlignment="Left" Margin="179,132,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="UpvotesMaxInput" HorizontalAlignment="Left" Margin="304,131,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Downvotes" HorizontalAlignment="Left" Margin="20,149,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,149,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,150,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="DownvotesMinInput" HorizontalAlignment="Left" Margin="179,155,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="DownvotesMaxInput" HorizontalAlignment="Left" Margin="304,154,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="81" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Up/Down vote ratio" HorizontalAlignment="Left" Margin="20,104,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,104,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,105,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="RatioMinInput" HorizontalAlignment="Left" Margin="179,110,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="RatioMaxInput" HorizontalAlignment="Left" Margin="270,109,0,0" Text="100" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <CheckBox x:Name="GlobalEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="106,55,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
+        <CheckBox x:Name="MapEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="93,269,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
+        <CheckBox x:Name="ScoresaberEnabledCheckBox" Content="Enable" HorizontalAlignment="Left" Margin="130,434,0,0" VerticalAlignment="Top" IsChecked="True" Foreground="#FFEF233C"/>
+        <Label x:Name="ResultsCountLabel" Content="Results:" HorizontalAlignment="Left" Margin="118,573,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <DatePicker x:Name="DatepickerFrom" HorizontalAlignment="Right" Margin="0,57,157,0" VerticalAlignment="Top" Width="106" SelectedDateFormat="Short" Text="dsda" IsTodayHighlighted="True"/>
+        <DatePicker x:Name="DatePickerTo" HorizontalAlignment="Right" Margin="0,57,22,0" VerticalAlignment="Top" Width="105" SelectedDateFormat="Short" Text="dsda"/>
+        <Label Content="From" HorizontalAlignment="Right" Margin="0,56,268,0" VerticalAlignment="Top" Height="24" Foreground="#FFEDF2F4"/>
+        <Label Content="To" HorizontalAlignment="Right" Margin="0,57,130,0" VerticalAlignment="Top" Height="24" Foreground="#FFEDF2F4"/>
+        <Canvas x:Name="Canvas" HorizontalAlignment="Right" Height="399" Margin="0,131,22,0" VerticalAlignment="Top" Width="532" Background="#FFF0F0F0"/>
+        <Label Content="Time" HorizontalAlignment="Right" Margin="0,530,22,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <ComboBox x:Name="graphCombobox" HorizontalAlignment="Right" Margin="0,102,22,0" VerticalAlignment="Top" Width="120" SelectionChanged="graphCombobox_SelectionChanged" BorderBrush="#FF474747" Foreground="#FF2B2D42">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -105,24 +104,24 @@
         <Rectangle x:Name="Header" HorizontalAlignment="Center" Height="37" VerticalAlignment="Top" Width="1237" Fill="#FF171A34" MouseDown="Header_MouseDown"/>
         <Image HorizontalAlignment="Left" Height="35" Margin="1,1,0,0" VerticalAlignment="Top" Width="35" Source="/BeatSaberMapFilterIcon.png"/>
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="1168,9,0,0" VerticalAlignment="Top" Width="60" Foreground="#FF2B2D42" Background="#FFEDF2F4" FontWeight="SemiBold" HorizontalContentAlignment="Center" UseLayoutRounding="False" Click="ExitButton_Click"/>
-        <Label Content="Total Bombs" HorizontalAlignment="Left" Margin="18,379,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,379,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,379,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="BombsMinInput" HorizontalAlignment="Left" Margin="177,384,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="BombsMaxInput" HorizontalAlignment="Left" Margin="268,383,0,0" Text="100000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Total Obstacles" HorizontalAlignment="Left" Margin="18,402,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,402,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,402,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="ObstaclesMinInput" HorizontalAlignment="Left" Margin="177,407,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="ObstaclesMaxInput" HorizontalAlignment="Left" Margin="268,406,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Duration" HorizontalAlignment="Left" Margin="20,212,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
-        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,213,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,213,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <TextBox x:Name="DurationMinInput" HorizontalAlignment="Left" Margin="179,218,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <TextBox x:Name="DurationMaxInput" HorizontalAlignment="Left" Margin="304,217,0,0" Text="1200" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Foreground="#FFEDF2F4" Background="#FF474747"/>
-        <Label Content="Sec" HorizontalAlignment="Left" Margin="228,213,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <Label Content="Sec" HorizontalAlignment="Left" Margin="349,213,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
-        <CheckBox x:Name="IncludeRemovedMapsCheckbox" Content="Include Removed Maps" HorizontalAlignment="Left" Margin="484,502,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747" FlowDirection="RightToLeft"/>
+        <Label Content="Total Bombs" HorizontalAlignment="Left" Margin="18,362,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,362,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,362,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="BombsMinInput" HorizontalAlignment="Left" Margin="177,367,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="BombsMaxInput" HorizontalAlignment="Left" Margin="268,366,0,0" Text="100000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Total Obstacles" HorizontalAlignment="Left" Margin="18,385,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="140,385,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="231,385,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="ObstaclesMinInput" HorizontalAlignment="Left" Margin="177,390,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="ObstaclesMaxInput" HorizontalAlignment="Left" Margin="268,389,0,0" Text="1000000" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Duration" HorizontalAlignment="Left" Margin="20,195,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
+        <Label Content="Min                " HorizontalAlignment="Left" Margin="142,196,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Max                " HorizontalAlignment="Left" Margin="265,196,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <TextBox x:Name="DurationMinInput" HorizontalAlignment="Left" Margin="179,201,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <TextBox x:Name="DurationMaxInput" HorizontalAlignment="Left" Margin="304,200,0,0" Text="1200" TextWrapping="Wrap" VerticalAlignment="Top" Width="47" Foreground="#FFEDF2F4" Background="#FF474747"/>
+        <Label Content="Sec" HorizontalAlignment="Left" Margin="228,196,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <Label Content="Sec" HorizontalAlignment="Left" Margin="349,196,0,0" VerticalAlignment="Top" Width="32" Foreground="#FFEDF2F4"/>
+        <CheckBox x:Name="IncludeRemovedMapsCheckbox" Content="Include Removed Maps" HorizontalAlignment="Left" Margin="490,536,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4" Background="#FF474747" FlowDirection="RightToLeft"/>
         <Label Content="Chart from shown results" HorizontalAlignment="Left" Margin="683,105,0,0" VerticalAlignment="Top" Foreground="#FFEDF2F4"/>
 
     </Grid>
