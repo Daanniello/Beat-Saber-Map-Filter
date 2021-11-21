@@ -163,7 +163,7 @@ namespace BeatSaberMapFilter
                         //Add More map details.
                         map.HashCode = hashCodes[count];
                         map.KeyCode = diff.Key;
-                        if (map.Length > 0 && map.Notes > 0) map.Nps = map.Notes / map.Length;
+                        if (map.Length > 0 && map.Notes > 0) map.Nps = Math.Round(Convert.ToDouble(map.Notes) / Convert.ToDouble(map.Length), 2);
                         map.Pp = map.Pp.Replace(".", ",");
                         map.Star = map.Star.Replace(".", ",");
                         if (Convert.ToDouble(map.Pp) > 0) map.IsRanked = true;

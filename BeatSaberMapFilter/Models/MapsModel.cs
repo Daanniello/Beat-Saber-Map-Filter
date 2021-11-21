@@ -56,7 +56,7 @@ namespace BeatSaberMapFilter.Models
         [JsonProperty("njs")]
         public long Njs { get; set; }
 
-        public long Nps { get; set; }
+        public double Nps { get; set; }
 
         public long BPM { get; set; }
 
