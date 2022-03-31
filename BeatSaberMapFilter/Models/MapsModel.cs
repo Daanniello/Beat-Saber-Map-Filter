@@ -84,10 +84,10 @@ namespace BeatSaberMapFilter.Models
         public long Obstacles { get; set; }
 
         [JsonProperty("pp")]
-        public string Pp { get; set; }
+        public double Pp { get; set; }
 
         [JsonProperty("star")]
-        public string Star { get; set; }
+        public double Star { get; set; }
 
         public long DownloadCount { get; set; }
         public long Upvotes { get; set; }

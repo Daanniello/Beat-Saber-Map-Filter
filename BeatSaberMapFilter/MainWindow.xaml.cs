@@ -157,15 +157,15 @@ namespace BeatSaberMapFilter
                 var AllMaps = new List<Models.DiffElement>();
                 var count = 0;
                 foreach (var diff in allBeatSaberMapsValues)
-                {                    
+                {
                     foreach (var map in diff.Diffs)
                     {
                         //Add More map details.
                         map.HashCode = hashCodes[count];
                         map.KeyCode = diff.Key;
                         if (map.Length > 0 && map.Notes > 0) map.Nps = Math.Round(Convert.ToDouble(map.Notes) / Convert.ToDouble(map.Length), 2);
-                        map.Pp = map.Pp.Replace(".", ",");
-                        map.Star = map.Star.Replace(".", ",");
+                        map.Pp = map.Pp;
+                        map.Star = map.Star;
                         if (Convert.ToDouble(map.Pp) > 0) map.IsRanked = true;
                         map.BPM = diff.Bpm;
                         map.DownloadCount = diff.DownloadCount;
